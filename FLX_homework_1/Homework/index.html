@@ -16,16 +16,16 @@
                         <img src="logo.png" alt="Epam Logo">
                         <h1><strong>HTML Elements</strong></h1>
                         <hr>
-                        <nav><a href=""><b>Home</b></a>
-                            <a href=""><b>Headers</b></a>
-                            <a href=""><b>Table</b></a>
-                            <a href=""><b>List</b></a>
-                            <a href=""><b>Text formats</b></a>
-                            <a href=""><b>Blockquotes</b></a>
+                        <nav><a href="#"><b>Home</b></a>
+                            <a href="#headers"><b>Headers</b></a>
+                            <a href="#table"><b>Table</b></a>
+                            <a href="#list"><b>List</b></a>
+                            <a href="#text-formats"><b>Text formats</b></a>
+                            <a href="#blockquote"><b>Blockquotes</b></a>
                         </nav>
                         <hr>
                     </header>
-                    <section>
+                    <section id="headers">
                         <p>Pay attention to h1 tag inside section element. Font-size for h1 is the same as font-size
                             for
                             h2, because we have to use only one h1 on the page, and it is commonly used inside header</p>
@@ -36,7 +36,7 @@
                         <h5>Header 5</h5>
                         <h6>Header 6</h6>
                         <hr>
-                        <p>Lorem ipsum dolor sit amet, <a href="">test link</a> adipiscing elit. <strong>This is
+                        <p>Lorem ipsum dolor sit amet, <a href="#">test link</a> adipiscing elit. <strong>This is
                                 strong.</strong>
                             Nullam dignissim convallis est. Quisque aliquam.<em> This is emphasized.</em> Donec
                             faucibus. Nunc
@@ -52,7 +52,8 @@
                             are our tools. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae,
                             feugiat in, nunc. Morbi imperdiet augue quis tellus. Praesent mattis, massa quis luctus
                             fermentum,
-                            turpis mi volutpat justo, eu volutpat enim diam eget metus. To copy a file type <kbd>COPY</kbd> <i>filename</i>.
+                            turpis mi volutpat justo, eu volutpat enim diam eget metus. To copy a file type <kbd>COPY</kbd>
+                            <i>filename</i>.
                             <del>Dinner`s at 5:00.</del><ins> Let’s make that 7.</ins> This<s> text</s> has been
                             struck.</p>
                     </section>
@@ -153,6 +154,8 @@
     vertical-align: middle;
     justify-content: center;
  }</code></pre>
+                    </section>
+                    <section id="blockquote">
                         <h2> Blockquotes</h2>
 
                         <p> Let’s keep it simple. Italics are good to help set it off from the body text. Be sure to
@@ -169,13 +172,13 @@
                                 few
                                 hundred years
                                 ago."<br>
-                                <cite><a href=""> Elon Musk</a></cite>
+                                <cite><a href="#"> Elon Musk</a></cite>
                         </blockquote>
 
                     </section>
                     <hr>
                     <form>
-                        <p> <label> First name:<input type="text"></label></p>
+                        <p><label> First name:<input type="text"></label></p>
                         <p><label> Surname:<input type="text"></label></p>
                         <p><label> Email:<input type="email"></label></p>
                         <p><textarea></textarea></p>
