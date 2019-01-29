@@ -34,12 +34,9 @@
     padding: 3rem;
     font-size: 1.6rem;
     letter-spacing: 0.3rem;
-    text-shadow: 1px 1px #000;
   }
   .header__logo-box .link:link,
   .header__logo-box .link:visited {
-    text-decoration: none;
-    color: #fff;
     text-transform: uppercase;
   }
   .header__user-nav {
@@ -51,10 +48,16 @@
     margin-right: 2.5rem;
   }
   .header__user-nav .item:link,
-  .header__user-nav .item:visited {
+  .header__user-nav .item:visited, .header__logo-box .link:link,
+  .header__logo-box .link:visited, .header .navigation__link:link,
+  .header .navigation__link:visited, .posts__item--btn:link,
+  .posts__item--btn:visited, .footer__nav--list .nav__item--link:link,
+  .footer__nav--list .nav__item--link:visited {
     text-decoration: none;
-    color: #fff;
-    text-shadow: 1px 1px #000;
+  }
+  .header__user-nav .item:link,
+  .header__user-nav .item:visited, .header__logo-box {
+    text-shadow: 1px 1px #000;  
   }
   .header__text-box {
     grid-area: title;
@@ -62,7 +65,6 @@
     align-self: center;
   }
   .header__text-box .heading-primary {
-    color: #fff;
     text-transform: uppercase;
     font-weight: 300;
     letter-spacing: 1rem;
@@ -73,7 +75,6 @@
   }
   .header__text-box .heading-primary--sub {
     text-align: center;
-    color: #fff;
   }
   .header .navigation {
     grid-area: nav;
@@ -89,8 +90,6 @@
   }
   .header .navigation__link:link,
   .header .navigation__link:visited {
-    text-decoration: none;
-    color: #fff;
     border: 1.5px solid #fff;
     padding: 1.3rem 8rem;
     background-color: rgba(0, 0, 0, 0.3);
@@ -114,7 +113,6 @@
   .header__authorship--secondary {
     align-self: flex-start;
     flex: 0 0 50%;
-    color: #fff;
     padding: 0 3rem;
     position: relative;
     top: 12rem;
@@ -146,13 +144,11 @@
     position: absolute;
     bottom: 1rem;
     left: 1rem;
-    color: #fff;
   }
   .featured__item--likes {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    color: #fff;
     border: 2px solid #fff;
     padding: 0.3rem 0.9rem;
     background-color: rgba(0, 0, 0, 0.4);
@@ -191,8 +187,6 @@
     width: 100%;
     text-align: center;
     background-color: #097774;
-    text-decoration: none;
-    color: #fff;
     font-weight: 900;
     font-size: 1.2rem;
     transition: all 0.4s;
@@ -232,10 +226,16 @@
   .newsletter__form--email:active {
     outline: none;
   }
+  .newsletter__form--btn, .footer__form--btn, .posts__item--btn:link,
+  .posts__item--btn:visited, .featured__item--likes, .featured__item--caption, .header__authorship--secondary, .header .navigation__link:link,
+  .header .navigation__link:visited, .header__text-box .heading-primary,  .header__logo-box .link:link,
+  .header__logo-box .link:visited, .header__user-nav .item:link,
+  .header__user-nav .item:visited, .header__text-box .heading-primary--sub  {
+    color: #fff;
+  }
   .newsletter__form--btn {
     background-color: #097774;
     padding: 1rem;
-    color: #fff;
     font-weight: 900;
     font-size: 1.3rem;
     border: 1px solid transparent;
@@ -289,7 +289,6 @@
   }
   .footer__nav--list .nav__item--link:link,
   .footer__nav--list .nav__item--link:visited {
-    text-decoration: none;
     color: #000;
   }
   .footer__form--email {
@@ -308,7 +307,6 @@
   .footer__form--btn {
     background-color: #097774;
     padding: 1rem;
-    color: #fff;
     font-weight: 900;
     font-size: 1.3rem;
     border: 1px solid transparent;
