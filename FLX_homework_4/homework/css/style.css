@@ -231,7 +231,6 @@
     color: #fff;
   }
   .newsletter__form--btn {
-    background-color: #097774;
     padding: 1rem;
     font-weight: 900;
     font-size: 1.3rem;
@@ -291,14 +290,18 @@
   .footer__form--email:active {
     outline: none;
   }
-  .footer__form--btn {
+  .footer__form--btn, .newsletter__form--btn {
     background-color: #097774;
+}
+
+  .footer__form--btn {
     padding: 1rem;
     font-weight: 900;
     font-size: 1.3rem;
     border: 1px solid transparent;
     transition: background-color 0.4s;
   }
+
   .footer__form--btn:hover, .newsletter__form--btn:hover, .featured__item--likes:hover {
     cursor: pointer;
   }
