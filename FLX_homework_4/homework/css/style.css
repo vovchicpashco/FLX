@@ -104,7 +104,6 @@
   .header__authorship--primary {
     align-self: flex-end;
     flex: 0 0 25%;
-    color: #000;
     font-size: 1.3rem;
     padding: 0 3rem;
     position: relative;
@@ -153,9 +152,6 @@
     padding: 0.3rem 0.9rem;
     background-color: rgba(0, 0, 0, 0.4);
     transition: all 0.4s;
-  }
-  .featured__item--likes:hover {
-    cursor: pointer;
   }
   .featured__item__description {
     flex: 0 0 40%;
@@ -219,7 +215,8 @@
     height: auto;
     padding: 1rem;
   }
-  .newsletter__form--email::placeholder {
+  .newsletter__form--email::placeholder, .header__authorship--primary, .footer__post--title, .footer__form--email::placeholder,  .footer__nav--list .nav__item--link:link,
+  .footer__nav--list .nav__item--link:visited {
     color: #000;
   }
   .newsletter__form--email:focus,
@@ -241,9 +238,6 @@
     border: 1px solid transparent;
     transition: background-color 0.4s;
   }
-  .newsletter__form--btn:hover {
-    cursor: pointer;
-  }
   
   .footer {
     position: relative;
@@ -264,7 +258,6 @@
     bottom: 4rem;
   }
   .footer__post--title {
-    color: #000;
     padding-bottom: 1.5rem;
   }
   .footer__post--desc {
@@ -287,19 +280,13 @@
     justify-content: space-between;
     list-style: none;
   }
-  .footer__nav--list .nav__item--link:link,
-  .footer__nav--list .nav__item--link:visited {
-    color: #000;
-  }
   .footer__form--email {
     background-color: #f3f3f3;
     border: 1px solid #000;
     height: auto;
     padding: 1rem;
   }
-  .footer__form--email::placeholder {
-    color: #000;
-  }
+
   .footer__form--email:focus,
   .footer__form--email:active {
     outline: none;
@@ -312,6 +299,6 @@
     border: 1px solid transparent;
     transition: background-color 0.4s;
   }
-  .footer__form--btn:hover {
+  .footer__form--btn:hover, .newsletter__form--btn:hover, .featured__item--likes:hover {
     cursor: pointer;
   }
