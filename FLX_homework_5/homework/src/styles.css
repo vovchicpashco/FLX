@@ -1,0 +1,404 @@
+.post-1 {
+    background: #B71757;
+}
+
+.post-2 {
+    background: #0D7E71;
+}
+
+.post-3 {
+    background: #b1660e;
+}
+
+.post-4 {
+    background: #d12767;
+}
+
+.post-5 {
+    background: #2d95bb;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "header header header header header header header"
+        "main main main main main main main"
+        "footer footer footer footer footer footer footer";
+    grid-gap: 10px;
+    background-color: #0b192f;
+    font-family: roboto;
+    font-size: 14px;
+    padding: 0 5%;
+}
+
+header {
+    grid-area: header;
+}
+
+.section {
+    grid-area: section;
+}
+
+aside {
+    grid-area: aside;
+}
+
+footer {
+    grid-area: footer;
+}
+
+main {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+        "section section section aside";
+    grid-area: main;
+}
+
+p {
+    color: #fff;
+    font-weight: 300;
+}
+
+h6 {
+    display: none;
+}
+
+header,
+footer {
+    background-color: #162b4d;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 100px;
+    padding: 0 20px;
+}
+
+header .logo {
+    font-size: 250%;
+    font-weight: 200;
+}
+
+header .logo span {
+    color: #B71757;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 40px;
+    text-align: center;
+    font-size: 120%;
+    font-weight: 300;
+    margin: 0;
+}
+
+header nav a:hover {
+    background-color: #0b192f;
+}
+
+.section {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.card {
+    display: inline-grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 65vh;
+}
+
+.card:nth-child(even) .img-wrapper {
+    grid-column: 2;
+    grid-row: 1/3;
+}
+
+.card:nth-child(odd) .img-wrapper {
+    grid-column: 1;
+    grid-row: 1/3;
+}
+
+.card:nth-child(even) .text-wrapper {
+    grid-column: 1;
+    text-align: left;
+}
+
+.card:nth-child(odd) .text-wrapper {
+    grid-column: 2;
+    text-align: right;
+}
+
+.img-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.img-wrapper:hover,
+.text-wrapper:hover {
+    filter: opacity(0.5);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.text-wrapper {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 1fr 1fr;
+}
+
+.card:nth-child(odd) .text-wrapper .text-part {
+    grid-column: 1/4;
+    grid-row: 1/3;
+    padding: 0 0 0 10%;
+    text-align: left;
+}
+
+.card:nth-child(even) .text-wrapper .text-part {
+    grid-column: 2/5;
+    grid-row: 1/3;
+    padding: 0 10% 0 0;
+    text-align: right;
+}
+
+.card:nth-child(even) .text-wrapper .date-part {
+    grid-column: 1;
+}
+
+.card:nth-child(odd) .text-wrapper .date-part {
+    grid-column: 4;
+}
+
+.text-part h2 {
+    font-size: 300%;
+    color: #fff;
+    font-weight: 100;
+    margin: 40px 0 0 0;
+}
+
+.card:nth-child(even) .text-wrapper .text-part h2 {
+    padding-left: 10%;
+}
+
+.card:nth-child(oddss) .text-wrapper .text-part h2 {
+    padding-right: 10%;
+}
+
+.text-part p {
+    font-size: 100%;
+    line-height: 25px;
+    filter: opacity(0.8);
+    padding: 0;
+}
+
+.date-part p {
+    margin: 0;
+    font-weight: 100;
+    text-align: center;
+    filter: opacity(0.5);
+}
+.date-part p:first-child {
+    font-size: 350%;
+}
+
+.date-part p:last-child {
+    font-size: 200%;
+    margin-top: -15px;
+}
+
+main .post-5 {
+    display: grid;
+    grid-template-columns: 90% 10%;
+    grid-template-rows: 1fr 1fr;
+    padding-top: 20px;
+}
+
+.post-5 .date-part {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.post-5 .p5 h2,
+.post-5 .p5 p {
+    padding: 0px;
+    margin-top: 20px;
+}
+
+.post-5 .text-part {
+    grid-column: 1;
+    grid-row: 1/3;
+    padding: 0 5%;
+}
+
+.post-5 .text-part p {
+    line-height: 25px;
+}
+
+aside .post {
+    display: grid;
+    grid-template-columns: auto;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+
+aside .post h2 {
+    font-weight: 300;
+    font-size: 200%;
+    margin-bottom: 0;
+}
+
+aside .post p {
+    color: #000;
+    font-size: 100%;
+    line-height: 25px;
+}
+
+.text-aside {
+    padding: 25px;
+}
+
+.img-news,
+.img-news img {
+    width: 100%;
+}
+
+footer p {
+    filter: opacity(0.3);
+    line-height: 25px;
+    font-weight: 200;
+}
+
+.icon {
+    display: none;
+    width: 20px;
+    height: 20px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding: 0 5%;
+    }
+
+    .card:nth-child(odd) .text-wrapper .text-part,
+    .card:nth-child(even) .text-wrapper .text-part,
+    .card:nth-child(odd) .text-wrapper .text-part h2,
+    .card:nth-child(even) .text-wrapper .text-part h2,
+    header p,
+    footer p {
+        padding: 0;
+        margin: 0;
+    }
+
+    header {
+        flex-direction: column;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+        height: 200px;
+    }
+
+    .icon {
+        display: block;
+    }
+
+    header nav {
+        display: none;
+    }
+
+    main {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+            "section section section aside aside";
+    }
+
+    .card {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .card:nth-child(even) .img-wrapper,
+    .card:nth-child(odd) .img-wrapper {
+        grid-row: 1;
+        grid-column: 1;
+    }
+
+    .card:nth-child(even) .text-wrapper,
+    .card:nth-child(odd) .text-wrapper {
+        grid-row: 2;
+        grid-column: 1;
+    }
+
+    .text-wrapper,
+    main .post-5 {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .text-wrapper {
+        padding: 5%;
+    }
+
+    .text-part h2,
+    .text-part p {
+        text-align: left;
+    }
+
+    .text-part p,
+    .post-5 .p5 p {
+        margin: 20px 0;
+    }
+
+    .post-5 .date-part {
+        padding-bottom: 20px;
+    }
+
+    aside .post h2 {
+        font-weight: 300;
+        font-size: 150%;
+    }
+
+    aside .post p {
+        font-size: 90%;
+        line-height: 20px;
+    }
+
+    aside .text-aside {
+        padding: 10px 10px;
+    }
+
+    footer {
+        height: 200px;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding: 0 15px;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        grid-gap: 0;
+        grid-template-areas:
+            "section"
+            "aside";
+    }
+}
