@@ -1,7 +1,7 @@
 var cash = parseFloat(prompt('Enter amount of cash', ''));
 var discount = parseFloat(prompt('Enter your discount', ''));
 var price = 0;
-var saved = (cash * discount / 100).toFixed(2);
+var saved = ( discount * cash / 100).toFixed(2);
 if (cash <= 0 || cash > 9999999) {
     alert('invalid data');
 } else if (isNaN(cash)) {
