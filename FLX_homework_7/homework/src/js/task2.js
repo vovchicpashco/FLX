@@ -1,11 +1,11 @@
-const globals = {
+const general = {
     tries: 3,
     bid: 10,
     prize: 0,
     defaultRange: 5
 };
 
-let random = Object.assign({}, globals);
+let random = Object.assign({}, general);
 let playGame = true;
 if (confirm("Do you want to play a game?")) {
     while (playGame) {
@@ -20,25 +20,24 @@ if (confirm("Do you want to play a game?")) {
                 prompt(`Enter a number from 0 to ${random.defaultRange}
 Attempts left: ${attempts}
 Total prize: ${random.prize}$
-Possible prize on current attempt: ${currentBid}$`)
+Possible prize on current attempt: ${currentBid}$`, '')
             );
             if (guess === luckyNum) {
                 random.prize += currentBid;
                 random.defaultRange += random.defaultRange;
                 random.bid *= 3;
                 if (
-                    confirm(`
-              Congratulation! Your prize is: ${random.prize}$.
-              Do you want to continue?`)
+                    confirm(`Congratulation! Your prize is: ${random.prize}$.
+Do you want to continue?`)
                 ) {
                     playGame = true;
                     break;
                 } else {
                     alert(`Thank you for a game. Your prize is: ${random.prize}$`);
                     if (confirm("Do you want to play again?")) {
-                        random.prize = globals.prize;
-                        random.defaultRange = globals.defaultRange;
-                        random.bid = globals.bid;
+                        random.prize = general.prize;
+                        random.defaultRange = general.defaultRange;
+                        random.bid = general.bid;
                         playGame = true;
                         break;
                     }
@@ -49,9 +48,9 @@ Possible prize on current attempt: ${currentBid}$`)
                 break;
             } else if (attempts <= 1) {
                 alert(`Thank you for a game. Your prize is: ${random.prize}$`);
-                random.prize = globals.prize;
-                random.defaultRange = globals.defaultRange;
-                random.bid = globals.bid;
+                random.prize = general.prize;
+                random.defaultRange = general.defaultRange;
+                random.bid = general.bid;
                 playGame =
                     confirm("Do you want to play again?") ||
                     alert("You did not become a millionaire, but can.");

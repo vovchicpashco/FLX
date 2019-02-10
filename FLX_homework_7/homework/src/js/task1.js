@@ -1,5 +1,5 @@
 const presentTime = new Date().getHours();
-const login = prompt("Please, enter your login");
+const login = prompt("Please, enter your login", "");
 
 if (login === null || login === "") {
     alert("Canceled");
@@ -7,7 +7,7 @@ if (login === null || login === "") {
     if (login.length < 4) {
         alert("I don't know any users having name length less than 4 symbols");
     } else if (login === "User") {
-        const password = prompt("Enter your password");
+        const password = prompt("Please, enter your password", "");
         if (password === null || password === "") {
             alert("Canceled");
         } else {
@@ -22,7 +22,7 @@ if (login === null || login === "") {
             }
         }
     } else if (login === "Admin") {
-        const password = prompt("Enter your password");
+        const password = prompt("Please, enter your password", "");
         if (password === null || password === "") {
             alert("Canceled");
         } else {
