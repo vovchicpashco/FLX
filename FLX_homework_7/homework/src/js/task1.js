@@ -7,26 +7,26 @@ if (login === null || login === "") {
     if (login.length < 4) {
         alert("I don't know any users having name length less than 4 symbols");
     } else if (login === "User") {
-        const password = prompt("Please, enter your password", "");
-        if (password === null || password === "") {
+        const passkey = prompt("Please, enter your password", "");
+        if (passkey === null || passkey === "") {
             alert("Canceled");
         } else {
-            if (password === "UserPass") {
+            if (passkey === "UserPass") {
                 alert(
                     presentTime >= 20
                         ? "Good evening, dear User!"
                         : "Good day, dear User!"
                 );
             } else {
-                alert("Wrong password");
+                alert("Wrong passkey");
             }
         }
     } else if (login === "Admin") {
-        const password = prompt("Please, enter your password", "");
-        if (password === null || password === "") {
+        const passkey = prompt("Please, enter your password", "");
+        if (passkey === null || passkey === "") {
             alert("Canceled");
         } else {
-            if (password === "RootPass") {
+            if (passkey === "RootPass") {
                 alert(
                     presentTime >= 20
                         ? "Good evening, dear Admin!"
