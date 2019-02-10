@@ -9,7 +9,7 @@ const globals = {
   let playGame = true;
   if (confirm("Do you want to play a game?")) {
     while (playGame) {
-      const winningNum = Math.floor(Math.random() * random.defaultRange);
+      const luckyNum = Math.floor(Math.random() * random.defaultRange);
       playGame = false;
       for (
         let attempts = random.tries, currentBid = random.bid;
@@ -22,7 +22,7 @@ Attempts left: ${attempts}
 Total prize: ${random.prize}$
 Possible prize on current attempt: ${currentBid}$`)
         );
-        if (guess === winningNum) {
+        if (guess === luckyNum) {
           random.prize += currentBid;
           random.defaultRange += random.defaultRange;
           random.bid *= 3;
