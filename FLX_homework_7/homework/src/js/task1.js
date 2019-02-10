@@ -1,4 +1,4 @@
-const currentTime = new Date().getHours();
+const presentTime = new Date().getHours();
 const login = prompt("Please, enter your login");
 
 if (login === null || login === "") {
@@ -13,7 +13,7 @@ if (login === null || login === "") {
         } else {
             if (password === "UserPass") {
                 alert(
-                    currentTime >= 20
+                    presentTime >= 20
                         ? "Good evening, dear User!"
                         : "Good day, dear User!"
                 );
@@ -28,7 +28,7 @@ if (login === null || login === "") {
         } else {
             if (password === "RootPass") {
                 alert(
-                    currentTime >= 20
+                    presentTime >= 20
                         ? "Good evening, dear Admin!"
                         : "Good day, dear Admin!"
                 );
