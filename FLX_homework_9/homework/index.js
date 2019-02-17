@@ -1,4 +1,4 @@
-let inputData = [
+var inputData = [
     {
         "_id": "5b5e3168e328c0d72e4f27d8",
         "index": 1,
@@ -41,8 +41,8 @@ function findTypes() {
     return result;
 }
 
-findTypes("number")
-findTypes(null, 5, "hello")
+console.log(findTypes("number"));
+console.log(findTypes(null, 5, "hello"));
 
 function executeForEach(array, callback) {
     let results = [];
@@ -104,8 +104,8 @@ console.log(getGreenAdultBananaLovers(inputData));
 
 function keys(obj) {
     let result = [];
-    for (let key in obj) {
-        result.push(key);
+    for (let k in obj) {
+        result.push(k);
     }
     return result;
 }
@@ -114,8 +114,8 @@ console.log(keys({ keyOne: 1, keyTwo: 2, keyThree: 3 }));
 
 function values(obj) {
     let result = [];
-    for (let k in obj) {
-        result.push(obj[k]);
+    for (let y in obj) {
+        result.push(obj[y]);
     }
     return result;
 }
@@ -135,6 +135,7 @@ function isEvenYear(date) {
 }
 
 console.log(isEvenYear(new Date('2019-01-27T01:10:00')));
+console.log(isEvenYear(new Date('2018-02-15T01:12:00')));
 
 function isEvenMonth(date) {
     let month = date.getMonth() + 1;
@@ -142,3 +143,4 @@ function isEvenMonth(date) {
 }
 
 console.log(isEvenMonth(new Date('2019-02-27T01:10:00')));
+console.log(isEvenMonth(new Date('2019-01-27T01:11:00')));
