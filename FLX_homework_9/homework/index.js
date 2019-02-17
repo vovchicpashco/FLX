@@ -1,19 +1,19 @@
 let inputData = [
     {
-        "_id": "5b5e3168c6bf40f2c1235cd6",
-        "index": 0,
-        "age": 39,
-        "eyeColor": "green",
-        "name": "Stein",
-        "favoriteFruit": "apple"
-    },
-    {
         "_id": "5b5e3168e328c0d72e4f27d8",
         "index": 1,
         "age": 38,
         "eyeColor": "blue",
         "name": "Cortez",
         "favoriteFruit": "strawberry"
+    },
+    {
+        "_id": "5b5e3168c6bf40f2c1235cd6",
+        "index": 0,
+        "age": 39,
+        "eyeColor": "green",
+        "name": "Stein",
+        "favoriteFruit": "apple"
     },
     {
         "_id": "5b5e3168cc79132b631c666a",
@@ -33,7 +33,7 @@ let inputData = [
     }
 ];
 
-function findType() {
+function findTypes() {
     let result = [];
     for (const argument of arguments) {
         result.push(typeof argument);
@@ -41,29 +41,34 @@ function findType() {
     return result;
 }
 
-findType(null, 5, "hello");
+findTypes("number")
+findTypes(null, 5, "hello")
 
 function executeForEach(array, callback) {
-    for(let i = 0; i < array.length; i++) {
-        callback(array[i]);
+    let results = [];
+    for (let i = 0; i < array.length; i += 1) {
+        results[i] = callback(array[i]);
     }
+    return results;
 }
+console.log(executeForEach([1, 2, 3], function (el) {
+    console.log(el)
+}));
 
 executeForEach([1, 2, 3], function (el) {
-     console.log(el);
+    console.log(el);
 });
 
 function mapArray(data, callback) {
     let result = [];
-    executeForEach(data, function (el) {
-        result.push(callback(el));
-    });
+    for (let i = 0; i < data.length; i += 1) {
+        result[i] = executeForEach([data[i]], callback)[0];
+    }
     return result;
 }
-
-mapArray([2, 5, 8], function (el) {
-    return el + 3;
-});
+console.log(mapArray([2, 5, 8], function (el) {
+    return el + 3
+}));
 
 function filterArray(data, callback) {
     let result = [];
@@ -79,8 +84,8 @@ filterArray([2, 5, 8], function (el) {
     return el > 3
 });
 
-function getAmountOfAdultPeople (data) {
-   return filterArray(data, function (el) {
+function getAmountOfAdultPeople(data) {
+    return filterArray(data, function (el) {
         return el.age > 18;
     }).length;
 }
@@ -100,28 +105,28 @@ function getGreenAdultBananaLovers(data) {
 getGreenAdultBananaLovers(inputData);
 
 function keys(obj) {
-     let result = [];
-     for(let key in obj) {
-         result.push(key);
-     }
-     return result;
+    let result = [];
+    for (let key in obj) {
+        result.push(key);
+    }
+    return result;
 }
 
-keys({"keyOne": 1, "keyTwo": 2, "keyThree": 3});
+keys({ "keyOne": 1, "keyTwo": 2, "keyThree": 3 });
 
-function properties(obj) {
+function values(obj) {
     let result = [];
-    for(let k in obj) {
+    for (let k in obj) {
         result.push(obj[k]);
     }
     return result;
 }
 
-properties({"keyOne": 1, "keyTwo": 2, "keyThree": 3});
+values({ "keyOne": 1, "keyTwo": 2, "keyThree": 3 });
 
 function showFormattedDate(date) {
-    const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    return `Date: ${date.getDate()} of ${month[date.getMonth()]}, ${date.getFullYear()}`;
+    const monthList = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    return `Date: ${date.getDate()} of ${monthList[date.getMonth()]}, ${date.getFullYear()}`;
 }
 
 showFormattedDate(new Date('2019-01-27T01:10:00'));
