@@ -51,13 +51,10 @@ function executeForEach(array, callback) {
     }
     return results;
 }
+
 console.log(executeForEach([1, 2, 3], function (el) {
     console.log(el)
 }));
-
-executeForEach([1, 2, 3], function (el) {
-    console.log(el);
-});
 
 function mapArray(data, callback) {
     let result = [];
@@ -66,6 +63,7 @@ function mapArray(data, callback) {
     }
     return result;
 }
+
 console.log(mapArray([2, 5, 8], function (el) {
     return el + 3
 }));
@@ -80,9 +78,9 @@ function filterArray(data, callback) {
     return result;
 }
 
-filterArray([2, 5, 8], function (el) {
+console.log(filterArray([2, 5, 8], function (el) {
     return el > 3
-});
+}));
 
 function getAmountOfAdultPeople(data) {
     return filterArray(data, function (el) {
@@ -90,7 +88,7 @@ function getAmountOfAdultPeople(data) {
     }).length;
 }
 
-getAmountOfAdultPeople(inputData);
+console.log(getAmountOfAdultPeople(inputData));
 
 function getGreenAdultBananaLovers(data) {
     let filteredArr = filterArray(data, function (el) {
@@ -102,7 +100,7 @@ function getGreenAdultBananaLovers(data) {
     return result;
 }
 
-getGreenAdultBananaLovers(inputData);
+console.log(getGreenAdultBananaLovers(inputData));
 
 function keys(obj) {
     let result = [];
@@ -112,7 +110,7 @@ function keys(obj) {
     return result;
 }
 
-keys({ "keyOne": 1, "keyTwo": 2, "keyThree": 3 });
+console.log(keys({ keyOne: 1, keyTwo: 2, keyThree: 3 }));
 
 function values(obj) {
     let result = [];
@@ -122,25 +120,25 @@ function values(obj) {
     return result;
 }
 
-values({ "keyOne": 1, "keyTwo": 2, "keyThree": 3 });
+console.log(values({ keyOne: 1, keyTwo: 2, keyThree: 3 }));
 
 function showFormattedDate(date) {
     const monthList = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     return `Date: ${date.getDate()} of ${monthList[date.getMonth()]}, ${date.getFullYear()}`;
 }
 
-showFormattedDate(new Date('2019-01-27T01:10:00'));
+console.log(showFormattedDate(new Date('2019-01-27T01:10:00')));
 
 function isEvenYear(date) {
     let year = date.getFullYear();
     return !(year % 2);
 }
 
-isEvenYear(new Date('2019-01-27T01:10:00'));
+console.log(isEvenYear(new Date('2019-01-27T01:10:00')));
 
 function isEvenMonth(date) {
     let month = date.getMonth() + 1;
     return !(month % 2);
 }
 
-isEvenMonth(new Date('2019-02-27T01:10:00'));
+console.log(isEvenMonth(new Date('2019-02-27T01:10:00')));
