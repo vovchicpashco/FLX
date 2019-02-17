@@ -42,7 +42,7 @@ function findTypes() {
 }
 
 console.log(findTypes("number"));
-console.log(findTypes(null, 5, "hello"));
+console.log(findTypes(null, 5, "hello", true, undefined));
 
 function executeForEach(array, callback) {
     let results = [];
