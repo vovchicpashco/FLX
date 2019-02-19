@@ -29,12 +29,12 @@ function userCard(index) {
             date.getFullYear() + ', ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
     }
 
-    function checkIfOperationPossible(creditAmount) {
+    function checkIfOperPoss(creditAmount) {
         if (options.balance < creditAmount) {
-            console.error('Not enough funds!');
+            console.error('Not enough funds on balance!');
             return false;
         } else if (options.transactionLimit < creditAmount) {
-            console.error('Transaction limit is too small!');
+            console.error('The amount of credit exceed the transaction limit!');
             return false;
         } else {
             return true;
@@ -61,23 +61,38 @@ function userCard(index) {
             return options;
         },
         putCredits: function (creditAmount) {
-            options.balance += parseInt(creditAmount);
-            addHistoryLog('Received credits', creditAmount);
-        },
-        takeCredits: function (creditAmount) {
-            if (checkIfOperationPossible(creditAmount)) {
-                options.balance -= parseInt(creditAmount);
-                addHistoryLog('Withdrawal of credits', creditAmount);
+            if (isFinite(creditAmount) === true) {
+                options.balance += parseInt(creditAmount);
+                addHistoryLog('Received credits', creditAmount);
+            } else {
+                console.error('Wrong value')
             }
         },
+        takeCredits: function (creditAmount) {
+            if (checkIfOperPoss(creditAmount) && isFinite(creditAmount) === true) {
+                options.balance -= parseInt(creditAmount);
+                addHistoryLog('Withdrawal of credits', creditAmount);
+            } else {
+                console.error('Wrong value')
+            }
+        },
+
         setTransactionLimit: function (creditAmount) {
-            options.transactionLimit = parseInt(creditAmount);
-            addHistoryLog('Transaction limit change', creditAmount);
+            if (isFinite(creditAmount) === true) {
+                options.transactionLimit = parseInt(creditAmount);
+                addHistoryLog('Transaction limit successfully changed', creditAmount);
+            } else {
+                console.error('Wrong value')
+            }
         },
         transferCredits: function (creditAmount, card) {
-            card.putCredits(parseInt(creditAmount));
-            this.takeCredits(creditAmount += creditAmount / procentum * taxedCreditsPercent);
-           
+            if (isFinite(creditAmount) === true) {
+                card.putCredits(parseInt(creditAmount));
+                this.takeCredits(creditAmount += creditAmount / procentum * taxedCreditsPercent);
+
+            } else {
+                console.error('Wrong value')
+            }
         }
     }
 }
@@ -100,15 +115,17 @@ class UserAccount {
     }
 }
 
-let user = new UserAccount('bob');
+let user = new UserAccount('Vova');
 user.addCard()
 user.addCard()
 let card1 = user.getCardByKey(1);
 let card2 = user.getCardByKey(2);
 card1.putCredits(500);
 card1.setTransactionLimit(800);
-card1.transferCredits(200, card2);
+card1.transferCredits(300, card2);
 card2.takeCredits(50);
+card1.transferCredits(55, card2);
 card1.getCardOptions();
 card2.getCardOptions();
+
 
