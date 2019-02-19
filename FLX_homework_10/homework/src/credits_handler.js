@@ -6,7 +6,7 @@ const minCard = 1;
 
 
 function userCard(id) {
-    const sliceBy = -2;
+    const slice = -2;
 
     let options = {
         balance: 100,
@@ -25,7 +25,7 @@ function userCard(id) {
 
     function getTime() {
         let date = new Date();
-        return ('0' + date.getDate()).slice(sliceBy) + '/' + ('0' + (date.getMonth() + 1)).slice(sliceBy) + '/' +
+        return ('0' + date.getDate()).slice(slice) + '/' + ('0' + (date.getMonth() + 1)).slice(slice) + '/' +
             date.getFullYear() + ', ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
     }
 
@@ -57,7 +57,6 @@ function userCard(id) {
 
     return {
         getCardOptions: function () {
-            console.log(options);
             return options;
         },
         putCredits: function (creditAmount) {
@@ -114,18 +113,5 @@ class UserAccount {
         };
     }
 }
-
-// let user = new UserAccount('Vova');
-// user.addCard()
-// user.addCard()
-// let card1 = user.getCardByKey(1);
-// let card2 = user.getCardByKey(2);
-// card1.putCredits(500);
-// card1.setTransactionLimit(800);
-// card1.transferCredits(300, card2);
-// card2.takeCredits(50);
-// card1.transferCredits(55, card2);
-// card1.getCardOptions();
-// card2.getCardOptions();
 
 
