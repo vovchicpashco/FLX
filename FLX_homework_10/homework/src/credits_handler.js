@@ -1,18 +1,18 @@
-let indexArr = [];
-const maxCardKey = 3;
+let idArr = [];
+const maxCard = 3;
 const taxedCreditsPercent = 0.5;
 const procentum = 100;
-const minCardKey = 1;
+const minCard = 1;
 
 
-function userCard(index) {
+function userCard(id) {
     const sliceBy = -2;
 
     let options = {
         balance: 100,
         transactionLimit: 100,
         historyLogs: [],
-        key: index
+        key: id
     };
 
     function addHistoryLog(operationType, credits) {
@@ -41,17 +41,17 @@ function userCard(index) {
         }
     }
 
-    function checkIfIndexInvalid(key) {
-        if (key < minCardKey || key > maxCardKey || indexArr.includes(key)) {
+    function checkIndexInvalid(key) {
+        if (key < minCard || key > maxCard || idArr.includes(key)) {
             console.error('Invalid index!');
             return true;
         } else {
-            indexArr.push(key);
+            idArr.push(key);
             return false;
         }
     }
 
-    if (checkIfIndexInvalid(index)) {
+    if (checkIndexInvalid(id)) {
         return
     }
 
@@ -102,30 +102,30 @@ class UserAccount {
         this.name = name;
         this.cards = [];
         this.addCard = function () {
-            if (this.cards.length > maxCardKey) {
+            if (this.cards.length > maxCard) {
                 console.error('User already has 3 cards!');
                 return;
             }
             let newCard = userCard(this.cards.length + 1);
             this.cards.push(newCard);
         };
-        this.getCardByKey = function (index) {
-            return this.cards[index - 1];
+        this.getCardByKey = function (id) {
+            return this.cards[id - 1];
         };
     }
 }
 
-let user = new UserAccount('Vova');
-user.addCard()
-user.addCard()
-let card1 = user.getCardByKey(1);
-let card2 = user.getCardByKey(2);
-card1.putCredits(500);
-card1.setTransactionLimit(800);
-card1.transferCredits(300, card2);
-card2.takeCredits(50);
-card1.transferCredits(55, card2);
-card1.getCardOptions();
-card2.getCardOptions();
+// let user = new UserAccount('Vova');
+// user.addCard()
+// user.addCard()
+// let card1 = user.getCardByKey(1);
+// let card2 = user.getCardByKey(2);
+// card1.putCredits(500);
+// card1.setTransactionLimit(800);
+// card1.transferCredits(300, card2);
+// card2.takeCredits(50);
+// card1.transferCredits(55, card2);
+// card1.getCardOptions();
+// card2.getCardOptions();
 
 
