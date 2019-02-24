@@ -1,18 +1,18 @@
-let disableButton = document.getElementById('button-add');
-let itemsList = document.getElementById('itemsList');
+let switchButton = document.getElementById('button-add');
+let itemsList = document.getElementById('items_List');
 let header = document.getElementById('header');
 let inputPlace = document.getElementById('inputPlace');
 let h1 = document.querySelector('h1');
-let maxLength = 10;
+const maxLength = 10;
 
 inputPlace.addEventListener('keyup', checkInput);
-disableButton.addEventListener('click', createList);
+switchButton.addEventListener('click', createList);
 
 function checkInput() {
 	if (inputPlace.value.trim()) {
-		disableButton.removeAttribute('disabled', '');
+		switchButton.removeAttribute('disabled', '');
 	} else {
-		disableButton.setAttribute('disabled', '');
+		switchButton.setAttribute('disabled', '');
 	}
 }
 
@@ -21,7 +21,7 @@ function createList() {
 	count++;
 	let text = inputPlace.value;
 	inputPlace.value = '';
-	disableButton.setAttribute('disabled', '');
+	switchButton.setAttribute('disabled', '');
 
 	let listItem = document.createElement('li');
 	listItem.addEventListener('dragstart', dragStart, false);
@@ -59,7 +59,7 @@ function createList() {
 	deleteKey.appendChild(deleteIcon);
 	listItem.appendChild(deleteKey);
 
-	let deleteItem = () => {
+	let deleteItems = () => {
 		listItem.parentNode.removeChild(listItem);
 		inputPlace.removeAttribute('disabled', '');
 		if (header.contains(document.querySelector('p'))) {
@@ -67,7 +67,7 @@ function createList() {
 		}
 		count--;
 	}
-	deleteKey.addEventListener('click', deleteItem);
+	deleteKey.addEventListener('click', deleteItems);
 
 	let message = document.createElement('p');
 	message.innerHTML = 'Maximum item per list are created';
@@ -80,12 +80,14 @@ function createList() {
 
 let dragdropElement = null;
 
-function dropItems(e) {
-	if (dragdropElement !== this) {
-		dragdropElement.innerHTML = this.innerHTML;
-		this.innerHTML = event.dataTransfer.getData('text/html');
+class dropItems {
+	constructor(e) {
+		if (dragdropElement !== this) {
+			dragdropElement.innerHTML = this.innerHTML;
+			this.innerHTML = event.dataTransfer.getData('text/html');
+		}
+		return false;
 	}
-	return false;
 }
 
 function dragStart(event) {
