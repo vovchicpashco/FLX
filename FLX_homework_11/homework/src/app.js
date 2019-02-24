@@ -1,15 +1,15 @@
-let inputField = document.getElementById('inputField');
-let disableButton = document.getElementById('button');
+let disableButton = document.getElementById('button-add');
 let itemsList = document.getElementById('itemsList');
 let header = document.getElementById('header');
+let inputPlace = document.getElementById('inputPlace');
 let h1 = document.querySelector('h1');
-let maxNumber = 10;
+let maxLength = 10;
 
-inputField.addEventListener('keyup', checkInput);
+inputPlace.addEventListener('keyup', checkInput);
 disableButton.addEventListener('click', createList);
 
 function checkInput() {
-	if (inputField.value.trim()) {
+	if (inputPlace.value.trim()) {
 		disableButton.removeAttribute('disabled', '');
 	} else {
 		disableButton.setAttribute('disabled', '');
@@ -18,62 +18,62 @@ function checkInput() {
 
 let count = 0;
 function createList() {
-	count ++;
-	let text = inputField.value;
-	inputField.value = '';
+	count++;
+	let text = inputPlace.value;
+	inputPlace.value = '';
 	disableButton.setAttribute('disabled', '');
 
-	let li = document.createElement('li');
-	li.addEventListener('dragstart', dragStart, false);
-	li.addEventListener('dragover', dragOver, false);
-	li.addEventListener('drop', dropItem, false);
-	let p = document.createElement('p');
-	let pValue = document.createTextNode(text);
-	itemsList.appendChild(li);
-	li.appendChild(p);
-	p.appendChild(pValue);	
-    li.setAttribute('draggable', true);
+	let listItem = document.createElement('li');
+	listItem.addEventListener('dragstart', dragStart, false);
+	listItem.addEventListener('dragover', dragOver, false);
+	listItem.addEventListener('drop', dropItem, false);
+	let paragraph = document.createElement('p');
+	let paragraphValue = document.createTextNode(text);
+	itemsList.appendChild(listItem);
+	listItem.appendChild(paragraph);
+	paragraph.appendChild(paragraphValue);
+	listItem.setAttribute('draggable', true);
 
 	let checkButton = document.createElement('button');
-	let checkIcon = document.createElement('i');
-	checkIcon.setAttribute('class','material-icons');
-	checkIcon.innerHTML = 'check_box_outline_blank';
-	checkButton.appendChild(checkIcon);
-	li.prepend(checkButton);
+	let checkIcons = document.createElement('i');
+	checkIcons.setAttribute('class', 'material-icons');
+	checkIcons.innerHTML = 'check_box_outline_blank';
+	checkButton.appendChild(checkIcons);
+	listItem.prepend(checkButton);
 
 	let checkedIcon = document.createElement('i');
-    checkedIcon.setAttribute('class', 'material-icons');
-    checkedIcon.innerHTML = 'check_box';
+	checkedIcon.setAttribute('class', 'material-icons');
+	checkedIcon.innerHTML = 'check_box';
 
 	let checked = () => {
-		if (checkButton.contains(checkIcon)) {
-			checkButton.replaceChild(checkedIcon, checkIcon);
+		if (checkButton.contains(checkIcons)) {
+			checkButton.replaceChild(checkedIcon, checkIcons);
 		}
 	}
 	checkButton.addEventListener('click', checked);
 
-	let deleteButton = document.createElement('button');
+	let deleteKey = document.createElement('button');
 	let deleteIcon = document.createElement('i');
-	deleteIcon.setAttribute('class','material-icons');
+	deleteIcon.setAttribute('class', 'material-icons');
 	deleteIcon.innerHTML = 'delete';
-	deleteButton.appendChild(deleteIcon);
-	li.appendChild(deleteButton);
+	deleteKey.appendChild(deleteIcon);
+	listItem.appendChild(deleteKey);
 
 	let deleteItem = () => {
-		li.parentNode.removeChild(li);
-		inputField.removeAttribute('disabled', '');
+		listItem.parentNode.removeChild(listItem);
+		inputPlace.removeAttribute('disabled', '');
 		if (header.contains(document.querySelector('p'))) {
-            h1.nextSibling.remove();
-        }
+			h1.nextSibling.remove();
+		}
 		count--;
 	}
-	deleteButton.addEventListener('click', deleteItem);
+	deleteKey.addEventListener('click', deleteItem);
 
 	let message = document.createElement('p');
 	message.innerHTML = 'Maximum item per list are created';
-	if (count >= maxNumber ) {		
-		inputField.setAttribute('disabled', '');
-        document.querySelector('#header').insertBefore(message, h1.nextSibling);
+	if (count >= maxLength) {
+		inputPlace.setAttribute('disabled', '');
+		document.querySelector('#header').insertBefore(message, h1.nextSibling);
 	}
 
 }
@@ -81,12 +81,12 @@ function createList() {
 let dragElement = null;
 
 function dragStart(event) {
-    dragElement = this;
+	dragElement = this;
 	event.dataTransfer.effectAllowed = 'move';
 	event.dataTransfer.setData('text/html', this.innerHTML);
 }
 function dragOver(event) {
-    if (event.preventDefault) {
+	if (event.preventDefault) {
 		event.preventDefault();
 	}
 	return false;
