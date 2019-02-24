@@ -26,7 +26,7 @@ function createList() {
 	let listItem = document.createElement('li');
 	listItem.addEventListener('dragstart', dragStart, false);
 	listItem.addEventListener('dragover', dragOver, false);
-	listItem.addEventListener('drop', dropItem, false);
+	listItem.addEventListener('drop', dropItems, false);
 	let paragraph = document.createElement('p');
 	let paragraphValue = document.createTextNode(text);
 	itemsList.appendChild(listItem);
@@ -78,23 +78,25 @@ function createList() {
 
 }
 
-let dragElement = null;
+let dragdropElement = null;
 
-function dragStart(event) {
-	dragElement = this;
-	event.dataTransfer.effectAllowed = 'move';
-	event.dataTransfer.setData('text/html', this.innerHTML);
-}
-function dragOver(event) {
-	if (event.preventDefault) {
-		event.preventDefault();
+function dropItems(e) {
+	if (dragdropElement !== this) {
+		dragdropElement.innerHTML = this.innerHTML;
+		this.innerHTML = event.dataTransfer.getData('text/html');
 	}
 	return false;
 }
-function dropItem(e) {
-	if (dragElement !== this) {
-		dragElement.innerHTML = this.innerHTML;
-		this.innerHTML = event.dataTransfer.getData('text/html');
+
+function dragStart(event) {
+	dragdropElement = this;
+	event.dataTransfer.effectAllowed = 'move';
+	event.dataTransfer.setData('text/html', this.innerHTML);
+}
+
+function dragOver(event) {
+	if (event.preventDefault) {
+		event.preventDefault();
 	}
 	return false;
 }
