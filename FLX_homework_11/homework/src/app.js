@@ -26,7 +26,7 @@ function createList() {
 	let listItem = document.createElement('li');
 	listItem.addEventListener('dragstart', dragStart, false);
 	listItem.addEventListener('dragover', dragOver, false);
-	listItem.addEventListener('drop', dropItems, false);
+	listItem.addEventListener('drop', dropItem, false);
 	let paragraph = document.createElement('p');
 	let paragraphValue = document.createTextNode(text);
 	itemsList.appendChild(listItem);
@@ -80,15 +80,7 @@ function createList() {
 
 let dragdropElement = null;
 
-class dropItems {
-	constructor(e) {
-		if (dragdropElement !== this) {
-			dragdropElement.innerHTML = this.innerHTML;
-			this.innerHTML = event.dataTransfer.getData('text/html');
-		}
-		return false;
-	}
-}
+
 
 function dragStart(event) {
 	dragdropElement = this;
@@ -99,6 +91,13 @@ function dragStart(event) {
 function dragOver(event) {
 	if (event.preventDefault) {
 		event.preventDefault();
+	}
+	return false;
+}
+function dropItem(e) {
+	if (dragdropElement !== this) {
+		dragdropElement.innerHTML = this.innerHTML;
+		this.innerHTML = event.dataTransfer.getData('text/html');
 	}
 	return false;
 }
