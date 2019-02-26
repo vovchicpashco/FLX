@@ -1,2 +1,18 @@
-/* Your styles go here */
+#root {
+	max-width: 350px;
+	margin: 0 auto;
+	text-align: center;
+}
+.button {
+	background: #d3d3d3;
+	padding: 5px 15px;
+	display: inline-block;
+	border-radius: 10px;
+	cursor: pointer;
+}
+input {
+	width: 250px;
+	height: 30px;
+	margin: 0 auto;
+}
 
