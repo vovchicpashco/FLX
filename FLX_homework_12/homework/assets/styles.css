@@ -1,18 +1,108 @@
-#root {
-	max-width: 350px;
-	margin: 0 auto;
-	text-align: center;
-}
-.button {
-	background: #d3d3d3;
-	padding: 5px 15px;
-	display: inline-block;
-	border-radius: 10px;
-	cursor: pointer;
-}
-input {
-	width: 250px;
-	height: 30px;
-	margin: 0 auto;
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto;
+    width: 350px;
+    min-height: 300px;
+    text-align: center;
+}
+
+section {
+    margin-bottom: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+}
+
+button {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.save-btn {
+    width: 50%;
+}
+
+.cancel-btn {
+    width: 30%;
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+
+.todo-text {
+    flex: 1;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.emptyList {
+    display: none;
+    text-align: center;
+}
+
+ul:empty + p {
+    display: block;
+}
+
+ul {
+    margin: 10px 0;
+    list-style: none;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.addNewTask-btn {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+.checkbox-done,
+.checkbox-undone,
+.todo-text,
+.remove-btn {
+    width: 35px;
+    height: 35px;
+    border: 0;
+    background-color: unset;
+}
+.checkbox-done {
+    background-image: url('../assets/img/done-s.png');
+}
+
+.checkbox-undone {
+    background-image: url('../assets/img/todo-s.png');
+}
+
+.remove-btn {
+    background-image: url('../assets/img/remove-s.jpg');
+}
+
+.marked {
+    background: #808080;
+}
