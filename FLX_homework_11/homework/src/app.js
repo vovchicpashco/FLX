@@ -94,6 +94,7 @@ function dragOver(event) {
 	}
 	return false;
 }
+
 function dropItem(e) {
 	if (dragdropElement !== this) {
 		dragdropElement.innerHTML = this.innerHTML;
