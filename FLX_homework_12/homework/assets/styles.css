@@ -4,10 +4,13 @@
     margin: 0;
 }
 
+.wrapper, li {
+    align-items: center;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin: 50px auto;
     width: 350px;
     min-height: 300px;
@@ -22,14 +25,14 @@ section {
     justify-content: center;
 }
 
-input {
-    width: 100%;
-    padding: 5px;
-}
-
 button {
     padding: 5px;
     border-radius: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
 }
 
 .save-btn {
@@ -38,6 +41,10 @@ button {
 
 .cancel-btn {
     width: 30%;
+}
+
+h1, .emptyList {
+    text-align: center;
 }
 
 h1 {
@@ -49,15 +56,17 @@ h1 {
     flex: 1;
 }
 
+footer, li {
+    justify-content: space-between;
+}
+
 footer {
     display: flex;
-    justify-content: space-between;
     padding: 10px 0;
 }
 
 .emptyList {
     display: none;
-    text-align: center;
 }
 
 ul:empty + p {
@@ -71,8 +80,6 @@ ul {
 
 li {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin: 10px 0;
 }
 

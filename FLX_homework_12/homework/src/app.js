@@ -85,29 +85,30 @@ function createElement(tag, attributes, innerText) {
     return newElem;
 }
 
-const template = {
+const templateApp = {
     addItemPage() {
-        const section = createElement('section', { 'class': 'add' });
-        const header = createElement('h1', {}, 'Add task');
-        const footer = createElement('footer', { 'class': 'add' });
-        const input = createElement('input', { 'class': 'input', 'type': 'text', 'placeholder': 'Task description' });
+        const sectionAdd = createElement('section', { 'class': 'add' });
+        const heading = createElement('h1', {}, 'Add task');
+        const footerAdd = createElement('footer', { 'class': 'add' });
+        const inputFields = createElement('input',
+            { 'class': 'input', 'type': 'text', 'placeholder': 'Task description' });
         const saveBtn = createElement('button', { 'class': 'save-btn', 'disabled': 'true' }, 'Save changes');
         const cancelBtn = createElement('button', { 'class': 'cancel-btn' }, 'Cancel');
 
-        section.appendChild(header);
-        section.appendChild(input);
-        footer.appendChild(cancelBtn);
-        footer.appendChild(saveBtn);
-        section.appendChild(footer);
+        sectionAdd.appendChild(heading);
+        sectionAdd.appendChild(inputFields);
+        footerAdd.appendChild(cancelBtn);
+        footerAdd.appendChild(saveBtn);
+        sectionAdd.appendChild(footerAdd);
 
-        input.onchange = input.onkeyup = () => {
-            const description = input.value.trim();
+        inputFields.onchange = inputFields.onkeyup = () => {
+            const description = inputFields.value.trim();
 
             saveBtn.disabled = !description;
         }
 
         saveBtn.addEventListener('click', () => {
-            storage.addItem(input.value.trim());
+            storage.addItem(inputFields.value.trim());
             window.location.hash = '/main';
 
         });
@@ -116,7 +117,7 @@ const template = {
             window.location.hash = '/main';
         });
 
-        return section;
+        return sectionAdd;
     },
 
     modifyItemPage(item) {
@@ -134,10 +135,10 @@ const template = {
     },
 
     mainPage(todoItems) {
-        const section = createElement('section', { 'class': 'main' });
-        const header = createElement('h1', {}, 'Simple TODO application');
-        const button = createElement('button', { 'class': 'addNewTask-btn' }, 'Add new task');
-        const p = createElement('p', { 'class': 'emptyList' }, 'TODO is empty');
+        const sectionMain = createElement('section', { 'class': 'main' });
+        const heading = createElement('h1', {}, 'Simple TODO application');
+        const buttonAdd = createElement('button', { 'class': 'addNewTask-btn' }, 'Add new task');
+        const paragraph = createElement('p', { 'class': 'emptyList' }, 'TODO is empty');
         const todoList = createElement('ul', { 'class': 'todoList' });
 
         if (todoItems.length) {
@@ -176,16 +177,16 @@ const template = {
             }
         }
 
-        button.addEventListener('click', () => {
+        buttonAdd.addEventListener('click', () => {
             window.location.hash = '/add';
         });
 
-        section.appendChild(header);
-        section.appendChild(button);
-        section.appendChild(todoList);
-        section.appendChild(p);
+        sectionMain.appendChild(heading);
+        sectionMain.appendChild(buttonAdd);
+        sectionMain.appendChild(todoList);
+        sectionMain.appendChild(paragraph);
 
-        return section;
+        return sectionMain;
     }
 }
 
@@ -209,7 +210,7 @@ const route = {
         document.title = 'Main Page';
 
         rootNode.innerHTML = '';
-        rootNode.appendChild(template.mainPage(todoItems));
+        rootNode.appendChild(templateApp.mainPage(todoItems));
 
     },
 
@@ -217,7 +218,7 @@ const route = {
         document.title = 'Add New Task';
 
         rootNode.innerHTML = '';
-        rootNode.appendChild(template.addItemPage());
+        rootNode.appendChild(templateApp.addItemPage());
 
     },
 
@@ -227,7 +228,7 @@ const route = {
         document.title = 'Modify';
 
         rootNode.innerHTML = '';
-        rootNode.appendChild(template.modifyItemPage(item));
+        rootNode.appendChild(templateApp.modifyItemPage(item));
 
     }
 };
