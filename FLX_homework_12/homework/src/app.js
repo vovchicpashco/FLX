@@ -67,13 +67,13 @@ const storage = {
     }
 }
 
-function createElement(tag, attributes, innerText) {
+function createElement(tag, attr, innerText) {
     const newElem = document.createElement(tag);
 
-    if (Object.keys(attributes).length) {
-        for (let key in attributes) {
-            if (attributes.hasOwnProperty(key)) {
-                newElem.setAttribute(key, attributes[key]);
+    if (Object.keys(attr).length) {
+        for (let key in attr) {
+            if (attr.hasOwnProperty(key)) {
+                newElem.setAttribute(key, attr[key]);
             }
         }
     }
@@ -121,17 +121,17 @@ const templateApp = {
     },
 
     modifyItemPage(item) {
-        const section = this.addItemPage();
+        const sectionModify = this.addItemPage();
 
-        section.querySelector('h1').innerText = 'Modify item';
-        section.querySelector('input').value = item.description;
+        sectionModify.querySelector('h1').innerText = 'Modify item';
+        sectionModify.querySelector('input').value = item.description;
 
-        section.querySelector('.save-btn').onclick = () => {
-            storage.changeDescription(item.id, section.querySelector('input').value.trim());
+        sectionModify.querySelector('.save-btn').onclick = () => {
+            storage.changeDescription(item.id, sectionModify.querySelector('input').value.trim());
             window.location.hash = '/main'
         };
 
-        return section;
+        return sectionModify;
     },
 
     mainPage(todoItems) {
@@ -192,7 +192,7 @@ const templateApp = {
 
 
 
-const route = {
+const guide = {
     load() {
         const hash = window.location.hash;
 
@@ -238,5 +238,5 @@ window.onload = window.onhashchange = () => {
     if (localStorage.getItem('todoItems')) {
         todoItems = storage.getSorted();
     }
-    route.load();
+    guide.load();
 };
